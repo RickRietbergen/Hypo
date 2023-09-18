@@ -13,7 +13,7 @@ namespace Hypo.Classes
 
         public void Maandinkomen()
         {
-            Console.Write("Wat is je maandinkomen: ");
+            Console.Write("Wat is uw brutojaarsalaris: ");
             decimal BrutoJaarInkomen = decimal.Parse(Console.ReadLine());
 
             //set value
@@ -61,11 +61,20 @@ namespace Hypo.Classes
             //ja = true, nee = false
             bool gebruikerHeeftPartner = partnerInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
 
+            if (gebruikerHeeftPartner == true)
+            {
+                Console.Write("Wat is het brutojaarsalaris van uw partner: ");
+                decimal BrutoJaarInkomenPartner = decimal.Parse(Console.ReadLine());
+
+                //set value
+                person.partnerBrutoJaarSalaris = BrutoJaarInkomenPartner;
+            }
+
             //set value
             person.heeftPartner = gebruikerHeeftPartner;
         }
 
-        public void heeftStudieSchuld()
+        public void HeeftStudieSchuld()
         {
             Console.Write("Heb je een studieschuld (Ja/Nee): ");
             string studieschuldInput = Console.ReadLine();
@@ -74,6 +83,26 @@ namespace Hypo.Classes
 
             //set value
             person.heeftStudieSchuld = heeftStudieschuld;
+        }
+
+        public void Postcode()
+        {
+            Console.Write("Voer je postcode in: ");
+            int postcode = int.Parse(Console.ReadLine());
+
+            if (postcode == 9679 || postcode == 9681 || postcode == 9682) 
+            {
+                person.magLenen = false;
+                Console.WriteLine("U mag helaas geen hypotheek lening nemen i.v.m aardbevingsgebied en/of dalende woningwaarde.");
+            }
+            else
+            {
+                person.magLenen = true;
+                Console.WriteLine("U mag een lening bij ons nemen, u bevindt zich niet in een aardbevingsgebied en/of dalende woningwaarde.");
+            }
+
+            //set value
+            person.postcode = postcode;
         }
     }
 }

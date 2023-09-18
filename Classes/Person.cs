@@ -12,9 +12,10 @@ namespace Hypo.Classes
         public int rentevastePeriode { get; set; }
         public decimal rentePercentage { get; set; }
         public bool heeftPartner { get; set; }
-        public int partnerBrutoJaarSalaris { get; set; } = 0;
+        public decimal partnerBrutoJaarSalaris { get; set; } = 0;
         public bool heeftStudieSchuld { get; set; }
         public int postcode { get; set; }
+        public bool magLenen { get; set; }
 
         public double maximaleHypotheekLening { get; set; }
         public double renteBetaaldElkeMaand { get; set; }

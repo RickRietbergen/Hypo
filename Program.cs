@@ -17,10 +17,9 @@ namespace Hypo
 
             hypotheek.HeeftPartner();
 
-            hypotheek.heeftStudieSchuld();
+            hypotheek.HeeftStudieSchuld();
 
-            Console.Write("Voer je postcode in: ");
-            string postcode = Console.ReadLine();
+            hypotheek.Postcode();
 
             Console.ReadKey();
         }
