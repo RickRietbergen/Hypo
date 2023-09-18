@@ -14,7 +14,7 @@ namespace Hypo.Classes
         public void Maandinkomen()
         {
             Console.Write("Wat is uw brutojaarsalaris: ");
-            decimal BrutoJaarInkomen = decimal.Parse(Console.ReadLine());
+            double BrutoJaarInkomen = double.Parse(Console.ReadLine());
 
             //set value
             person.brutoJaarSalaris = BrutoJaarInkomen;
@@ -32,23 +32,49 @@ namespace Hypo.Classes
                 Console.WriteLine("5. 30 jaar | 5%");
 
                 Console.Write("selecteer welke rentevaste periode u wilt kiezen voor uw hypotheek lening: ");
+                int choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
                 {
                     case 1:
                         Console.WriteLine("U heeft de rentevaste periode gekozen van: 1 jaar | 2%");
+
+                        //set value's and continue to next function
+                        person.rentevastePeriode = 1;
+                        person.rentePercentage = 2;
+                        HeeftPartner();
                         break;
                     case 2:
                         Console.WriteLine("U heeft de rentevaste periode gekozen van: 5 jaar | 3%");
+
+                        //set value's and continue to next function
+                        person.rentevastePeriode = 5;
+                        person.rentePercentage = 3;
+                        HeeftPartner();
                         break;
                     case 3:
                         Console.WriteLine("U heeft de rentevaste periode gekozen van: 10 jaar | 3.5%");
+
+                        //set value's and continue to next function
+                        person.rentevastePeriode = 10;
+                        person.rentePercentage = 3.5;
+                        HeeftPartner();
                         break;
                     case 4:
                         Console.WriteLine("U heeft de rentevaste periode gekozen van: 20 jaar | 4.5%");
+
+                        //set value's and continue to next function
+                        person.rentevastePeriode = 20;
+                        person.rentePercentage = 4.5;
+                        HeeftPartner();
                         break;
                     case 5:
                         Console.WriteLine("U heeft de rentevaste periode gekozen van: 30 jaar | 5%");
+
+                        //set value's and continue to next function
+                        person.rentevastePeriode = 30;
+                        person.rentePercentage = 5;
+                        HeeftPartner();
                         break;
                 }
             }
@@ -64,7 +90,7 @@ namespace Hypo.Classes
             if (gebruikerHeeftPartner == true)
             {
                 Console.Write("Wat is het brutojaarsalaris van uw partner: ");
-                decimal BrutoJaarInkomenPartner = decimal.Parse(Console.ReadLine());
+                double BrutoJaarInkomenPartner = double.Parse(Console.ReadLine());
 
                 //set value
                 person.partnerBrutoJaarSalaris = BrutoJaarInkomenPartner;

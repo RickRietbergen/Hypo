@@ -13,7 +13,7 @@ namespace Hypo
 
             hypotheek.Maandinkomen();
 
-            //hypotheek.RentevastePeriode();
+            hypotheek.RentevastePeriode();
 
             hypotheek.HeeftPartner();
 
