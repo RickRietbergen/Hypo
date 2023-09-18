@@ -9,10 +9,15 @@ namespace Hypo.Classes
     public class Hypotheek
     {
         private int choice;
+        Hypo.Classes.Person person = new Hypo.Classes.Person();
+
         public void Maandinkomen()
         {
             Console.Write("Wat is je maandinkomen: ");
             decimal BrutoJaarInkomen = decimal.Parse(Console.ReadLine());
+
+            //set value
+            person.brutoJaarSalaris = BrutoJaarInkomen;
         }
 
         public void RentevastePeriode()
@@ -53,7 +58,22 @@ namespace Hypo.Classes
         {
             Console.Write("Heeft u een partner (Ja/Nee): ");
             string partnerInput = Console.ReadLine();
+            //ja = true, nee = false
             bool gebruikerHeeftPartner = partnerInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
+
+            //set value
+            person.heeftPartner = gebruikerHeeftPartner;
+        }
+
+        public void heeftStudieSchuld()
+        {
+            Console.Write("Heb je een studieschuld (Ja/Nee): ");
+            string studieschuldInput = Console.ReadLine();
+            //ja = true, nee = false
+            bool heeftStudieschuld = studieschuldInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
+
+            //set value
+            person.heeftStudieSchuld = heeftStudieschuld;
         }
     }
 }

@@ -13,13 +13,11 @@ namespace Hypo
 
             hypotheek.Maandinkomen();
 
-            hypotheek.RentevastePeriode();
+            //hypotheek.RentevastePeriode();
 
             hypotheek.HeeftPartner();
 
-            Console.Write("Heb je een studieschuld (Ja/Nee): ");
-            string studieschuldInput = Console.ReadLine();
-            bool heeftStudieschuld = studieschuldInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
+            hypotheek.heeftStudieSchuld();
 
             Console.Write("Voer je postcode in: ");
             string postcode = Console.ReadLine();

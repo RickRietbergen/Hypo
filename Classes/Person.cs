@@ -8,8 +8,9 @@ namespace Hypo.Classes
 {
     public class Person
     {
-        public int brutoJaarSalaris { get; set; }
+        public decimal brutoJaarSalaris { get; set; }
         public int rentevastePeriode { get; set; }
+        public decimal rentePercentage { get; set; }
         public bool heeftPartner { get; set; }
         public int partnerBrutoJaarSalaris { get; set; } = 0;
         public bool heeftStudieSchuld { get; set; }
