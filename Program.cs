@@ -21,6 +21,8 @@ namespace Hypo
 
             hypotheek.Postcode();
 
+            hypotheek.BerekenHypotheek();
+
             Console.ReadKey();
         }
     }
