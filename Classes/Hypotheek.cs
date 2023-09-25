@@ -86,8 +86,6 @@ namespace Hypo.Classes
 
                 //set value
                 person.partnerBrutoJaarSalaris = BrutoJaarInkomenPartner;
-                Console.WriteLine(person.brutoJaarSalaris);
-                Console.WriteLine(person.partnerBrutoJaarSalaris);
                 person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
             }
 
