@@ -8,8 +8,7 @@ namespace Hypo.Classes
 {
     public class Hypotheek
     {
-        private readonly int choice;
-        Hypo.Classes.Person person = new Hypo.Classes.Person();
+        public Hypo.Classes.Person person = new Hypo.Classes.Person();
 
         public void Maandinkomen()
         {
@@ -124,7 +123,7 @@ namespace Hypo.Classes
             person.postcode = postcode;
         }
 
-        public void BerekenHypotheek()
+        public HypotheekResult BerekenHypotheek()
         {
             double maxHypotheek;
 
@@ -156,6 +155,15 @@ namespace Hypo.Classes
             double totaleMaandbedrag = renteBedragPerMaand + AflossingsBedrag;
             double totaalBedragNaDertigJaar = Math.Round(totaleMaandbedrag, 2) * 12 * 30;
 
+            var results = new HypotheekResult
+            {
+                MaxHypotheek = maxHypotheek,
+                RenteBedragPerMaand = renteBedragPerMaand,
+                AflossingsBedrag = AflossingsBedrag,
+                TotaleMaandbedrag = totaleMaandbedrag,
+                TotaalBedragNaDertigJaar = totaalBedragNaDertigJaar
+            };
+
             Console.WriteLine("====================");
             Console.WriteLine($"U komt maximaal een hypotheeklening nemen van: {maxHypotheek}");
             Console.WriteLine($"rentevaste periode: {person.rentevastePeriode} jaar || {person.rentePercentage}%");
@@ -163,6 +171,8 @@ namespace Hypo.Classes
             Console.WriteLine($"Aflossingbedrag: {AflossingsBedrag:F2}");
             Console.WriteLine($"Totale maandbedrag: {totaleMaandbedrag:F2}");
             Console.WriteLine($"Totaal betaald na 30 jaar : {totaalBedragNaDertigJaar:F2}");
+            
+            return results;
         }
     }
 }
