@@ -157,11 +157,11 @@ namespace Hypo.Classes
 
             var results = new HypotheekResult
             {
-                MaxHypotheek = maxHypotheek,
-                RenteBedragPerMaand = renteBedragPerMaand,
-                AflossingsBedrag = AflossingsBedrag,
-                TotaleMaandbedrag = totaleMaandbedrag,
-                TotaalBedragNaDertigJaar = totaalBedragNaDertigJaar
+                MaxHypotheek = Math.Round(maxHypotheek, 2),
+                RenteBedragPerMaand = Math.Round(renteBedragPerMaand, 2),
+                AflossingsBedrag =  Math.Round(AflossingsBedrag, 2),
+                TotaleMaandbedrag = Math.Round(totaleMaandbedrag, 2),
+                TotaalBedragNaDertigJaar = Math.Round(totaalBedragNaDertigJaar, 2),
             };
 
             Console.WriteLine("====================");
