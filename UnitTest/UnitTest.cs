@@ -9,7 +9,7 @@ namespace UnitTest
         public void UnitTest1()
         {
             var hypo = new Hypotheek();
-            var person = new Hypo.Classes.Person();
+            var person = hypo.person;
 
             person.brutoJaarSalaris = 10000;
 
@@ -35,10 +35,10 @@ namespace UnitTest
             var hypo = new Hypotheek();
             var person = hypo.person;
 
-            bool heeftWelPartner = true;
+            bool heeftWelPartner = false;
             hypo.HeeftPartner(heeftWelPartner);
 
-            Assert.Equal(true, person.heeftPartner);
+            Assert.Equal(false, person.heeftPartner);
         }
         
         [Fact]
@@ -51,6 +51,18 @@ namespace UnitTest
             hypo.HeeftStudieSchuld(heeftschulden);
 
             Assert.Equal(true, person.heeftStudieSchuld);
+        }
+        
+        [Fact]
+        public void UnitTest5()
+        {
+            var hypo = new Hypotheek();
+            var person = hypo.person;
+
+            int userPostcode = 6836;
+            hypo.Postcode(userPostcode);
+
+            Assert.Equal(6836, person.postcode);
         }
     }
 }

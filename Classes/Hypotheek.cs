@@ -90,9 +90,9 @@ namespace Hypo.Classes
             }
         }
 
-        public void HeeftPartner(bool heefteenpartner = false)
+        public void HeeftPartner(bool heefteenpartner = true)
         {
-            if (!heefteenpartner)
+            if (heefteenpartner)
             {
                 Console.Write("Heeft u een partner (Ja/Nee): ");
                 string partnerInput = Console.ReadLine();
@@ -114,7 +114,7 @@ namespace Hypo.Classes
             }
             else
             {
-                person.heeftPartner = true;
+                person.heeftPartner = false;
             }
         }
 
@@ -136,24 +136,31 @@ namespace Hypo.Classes
             }
         }
 
-        public void Postcode()
+        public void Postcode(int userPostcode = 1111)
         {
-            Console.Write("Voer je postcode in: ");
-            int postcode = int.Parse(Console.ReadLine());
-
-            if (postcode == 9679 || postcode == 9681 || postcode == 9682) 
+            if (userPostcode == 1111)
             {
-                person.magLenen = false;
-                Console.WriteLine("U mag helaas geen hypotheek lening nemen i.v.m aardbevingsgebied en/of dalende woningwaarde.");
+                Console.Write("Voer je postcode in: ");
+                int postcode = int.Parse(Console.ReadLine());
+
+                if (postcode == 9679 || postcode == 9681 || postcode == 9682)
+                {
+                    person.magLenen = false;
+                    Console.WriteLine("U mag helaas geen hypotheek lening nemen i.v.m aardbevingsgebied en/of dalende woningwaarde.");
+                }
+                else
+                {
+                    person.magLenen = true;
+                    Console.WriteLine("U mag een lening bij ons nemen, u bevindt zich niet in een aardbevingsgebied en/of dalende woningwaarde.");
+                }
+
+                //set value
+                person.postcode = postcode;
             }
             else
             {
-                person.magLenen = true;
-                Console.WriteLine("U mag een lening bij ons nemen, u bevindt zich niet in een aardbevingsgebied en/of dalende woningwaarde.");
+                person.postcode = userPostcode;
             }
-
-            //set value
-            person.postcode = postcode;
         }
 
         public HypotheekResult BerekenHypotheek()
