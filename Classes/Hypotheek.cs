@@ -10,12 +10,19 @@ namespace Hypo.Classes
     {
         public Hypo.Classes.Person person = new Hypo.Classes.Person();
 
-        public void Maandinkomen()
+        public void Maandinkomen(int geld = 1000)
         {
-            Console.Write("Wat is uw brutojaarsalaris: ");
-            double BrutoJaarInkomen = double.Parse(Console.ReadLine());
+            if (geld == 1000)
+            {
+                Console.Write("Wat is uw brutojaarsalaris: ");
+                double BrutoJaarInkomen = double.Parse(Console.ReadLine());
 
-            person.brutoJaarSalaris = BrutoJaarInkomen;
+                person.brutoJaarSalaris = BrutoJaarInkomen;
+            }
+            else
+            {
+                person.brutoJaarSalaris = geld;
+            }
         }
 
         public void RentevastePeriode(EnumRente gekozenRente = EnumRente.DefaultValue)

@@ -11,7 +11,8 @@ namespace UnitTest
             var hypo = new Hypotheek();
             var person = hypo.person;
 
-            person.brutoJaarSalaris = 10000;
+            int geld = 10000;
+            hypo.Maandinkomen(geld);
 
             Assert.Equal(10000, person.brutoJaarSalaris);
         }
