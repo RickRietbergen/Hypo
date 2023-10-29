@@ -15,11 +15,10 @@ namespace Hypo.Classes
             Console.Write("Wat is uw brutojaarsalaris: ");
             double BrutoJaarInkomen = double.Parse(Console.ReadLine());
 
-            //set value
             person.brutoJaarSalaris = BrutoJaarInkomen;
         }
 
-        public void RentevastePeriode()
+        public void RentevastePeriode(EnumRente gekozenRente = EnumRente.DefaultValue)
         {
             Console.WriteLine("Rentevaste periodes:");
             Console.WriteLine("1. 1 jaar  | 2%");
@@ -28,45 +27,65 @@ namespace Hypo.Classes
             Console.WriteLine("4. 20 jaar | 4.5%");
             Console.WriteLine("5. 30 jaar | 5%");
 
-            Console.Write("selecteer welke rentevaste periode u wilt kiezen voor uw hypotheek lening: ");
-            int choice = int.Parse(Console.ReadLine());
-
-            switch (choice)
+            if (gekozenRente == EnumRente.DefaultValue)
             {
-                case 1:
-                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 1 jaar | 2%");
+                Console.Write("selecteer welke rentevaste periode u wilt kiezen voor uw hypotheek lening: ");
+                int choice = int.Parse(Console.ReadLine());
 
-                    //set value's and continue to next function
+                switch (choice)
+                {
+                    case 1:
+                        gekozenRente = EnumRente.EenJaar;
+                        break;
+                    case 2:
+                        gekozenRente = EnumRente.VijfJaar;
+                        break;
+                    case 3:
+                        gekozenRente = EnumRente.TienJaar;
+                        break;
+                    case 4:
+                        gekozenRente = EnumRente.TwintigJaar;
+                        break;
+                    case 5:
+                        gekozenRente = EnumRente.DertigJaar;
+                        break;
+                    default:
+                        Console.WriteLine("Ongeldige keuze.");
+                        return;
+                }
+            }
+
+            switch (gekozenRente)
+            {
+                case EnumRente.EenJaar:
                     person.rentevastePeriode = 1;
                     person.rentePercentage = 2;
-                    break;
-                case 2:
-                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 5 jaar | 3%");
 
-                    //set value's and continue to next function
+                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 1 jaar | 2%");
+                    break;
+                case EnumRente.VijfJaar:
                     person.rentevastePeriode = 5;
                     person.rentePercentage = 3;
-                    break;
-                case 3:
-                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 10 jaar | 3.5%");
 
-                    //set value's and continue to next function
+                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 5 jaar | 3%");
+                    break;
+                case EnumRente.TienJaar:
                     person.rentevastePeriode = 10;
                     person.rentePercentage = 3.5;
-                    break;
-                case 4:
-                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 20 jaar | 4.5%");
 
-                    //set value's and continue to next function
+                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 10 jaar | 3.5%");
+                    break;
+                case EnumRente.TwintigJaar:
                     person.rentevastePeriode = 20;
                     person.rentePercentage = 4.5;
-                    break;
-                case 5:
-                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 30 jaar | 5%");
 
-                    //set value's and continue to next function
+                    Console.WriteLine("U heeft de rentevaste periode gekozen van: 20 jaar | 4.5%");
+                    break;
+                case EnumRente.DertigJaar:
                     person.rentevastePeriode = 30;
                     person.rentePercentage = 5;
+
+                    Console.WriteLine($"U heeft de rentevaste periode gekozen van: {person.rentevastePeriode} | {person.rentePercentage}");
                     break;
             }
         }

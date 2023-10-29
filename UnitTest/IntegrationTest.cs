@@ -10,7 +10,7 @@ namespace UnitTest
     public class IntegrationTest
     {
         [Fact]
-        public void Test1()
+        public void IntegrationTest1()
         {
             var hypo = new Hypotheek();
             var person = new Hypo.Classes.Person();
