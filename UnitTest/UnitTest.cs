@@ -28,5 +28,17 @@ namespace UnitTest
             Assert.Equal(30, person.rentevastePeriode);
             Assert.Equal(5, person.rentePercentage);
         }
+
+        [Fact]
+        public void UnitTest3()
+        {
+            var hypo = new Hypotheek();
+            var person = hypo.person;
+
+            bool heeftWelPartner = true;
+            hypo.HeeftPartner(heeftWelPartner);
+
+            Assert.Equal(true, person.heeftPartner);
+        }
     }
 }

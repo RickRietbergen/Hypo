@@ -90,25 +90,32 @@ namespace Hypo.Classes
             }
         }
 
-        public void HeeftPartner()
+        public void HeeftPartner(bool ja = false)
         {
-            Console.Write("Heeft u een partner (Ja/Nee): ");
-            string partnerInput = Console.ReadLine();
-            //ja = true, nee = false
-            bool gebruikerHeeftPartner = partnerInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
-
-            if (gebruikerHeeftPartner == true)
+            if (!ja)
             {
-                Console.Write("Wat is het brutojaarsalaris van uw partner: ");
-                double BrutoJaarInkomenPartner = double.Parse(Console.ReadLine());
+                Console.Write("Heeft u een partner (Ja/Nee): ");
+                string partnerInput = Console.ReadLine();
+                //ja = true, nee = false
+                bool gebruikerHeeftPartner = partnerInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
+
+                if (gebruikerHeeftPartner == true)
+                {
+                    Console.Write("Wat is het brutojaarsalaris van uw partner: ");
+                    double BrutoJaarInkomenPartner = double.Parse(Console.ReadLine());
+
+                    //set value
+                    person.partnerBrutoJaarSalaris = BrutoJaarInkomenPartner;
+                    person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
+                }
 
                 //set value
-                person.partnerBrutoJaarSalaris = BrutoJaarInkomenPartner;
-                person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
+                person.heeftPartner = gebruikerHeeftPartner;
             }
-
-            //set value
-            person.heeftPartner = gebruikerHeeftPartner;
+            else
+            {
+                person.heeftPartner = true;
+            }
         }
 
         public void HeeftStudieSchuld()
