@@ -90,9 +90,9 @@ namespace Hypo.Classes
             }
         }
 
-        public void HeeftPartner(bool ja = false)
+        public void HeeftPartner(bool heefteenpartner = false)
         {
-            if (!ja)
+            if (!heefteenpartner)
             {
                 Console.Write("Heeft u een partner (Ja/Nee): ");
                 string partnerInput = Console.ReadLine();
@@ -118,15 +118,22 @@ namespace Hypo.Classes
             }
         }
 
-        public void HeeftStudieSchuld()
+        public void HeeftStudieSchuld(bool heeftschulden = false)
         {
-            Console.Write("Heb je een studieschuld (Ja/Nee): ");
-            string studieschuldInput = Console.ReadLine();
-            //ja = true, nee = false
-            bool heeftStudieschuld = studieschuldInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
+            if (!heeftschulden)
+            {
+                Console.Write("Heb je een studieschuld (Ja/Nee): ");
+                string studieschuldInput = Console.ReadLine();
+                //ja = true, nee = false
+                bool heeftStudieschuld = studieschuldInput.Equals("Ja", StringComparison.OrdinalIgnoreCase);
 
-            //set value
-            person.heeftStudieSchuld = heeftStudieschuld;
+                //set value
+                person.heeftStudieSchuld = heeftStudieschuld;
+            }
+            else
+            {
+                person.heeftStudieSchuld = true;
+            }
         }
 
         public void Postcode()

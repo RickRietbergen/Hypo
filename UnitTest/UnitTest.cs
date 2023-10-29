@@ -40,5 +40,17 @@ namespace UnitTest
 
             Assert.Equal(true, person.heeftPartner);
         }
+        
+        [Fact]
+        public void UnitTest4()
+        {
+            var hypo = new Hypotheek();
+            var person = hypo.person;
+
+            bool heeftschulden = true;
+            hypo.HeeftStudieSchuld(heeftschulden);
+
+            Assert.Equal(true, person.heeftStudieSchuld);
+        }
     }
 }
