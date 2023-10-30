@@ -13,7 +13,7 @@ namespace UnitTest
         public void IntegrationTest1()
         {
             var hypo = new Hypotheek();
-            var person = new Hypo.Classes.Person();
+            var person = hypo.person;
                 
             person.brutoJaarSalaris = 10000;
             person.rentevastePeriode = 30;
@@ -23,9 +23,10 @@ namespace UnitTest
             person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
             person.heeftStudieSchuld = false;
             person.postcode = 6836;
-            person.magLenen = true;
 
-            hypo.person = person;
+            var postcode = person.postcode;
+            hypo.Postcode(postcode);
+
             var result = hypo.BerekenHypotheek();
 
             var expected = new HypotheekResult
@@ -37,6 +38,7 @@ namespace UnitTest
                 TotaalBedragNaDertigJaar = 106250.40,
             };
 
+            Assert.True(person.magLenen);
             Assert.Equivalent(expected, result);
         }
 
