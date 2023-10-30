@@ -70,31 +70,32 @@ namespace UnitTest
             Assert.Equivalent(expected, result);
         }
 
-        //[Fact]
-        //public void IntegrationTest3()
-        //{
-        //    var hypo = new Hypotheek();
-        //    var person = hypo.person;
+        [Fact]
+        public void IntegrationTest3()
+        {
+            var hypo = new Hypotheek();
+            var person = hypo.person;
 
-        //    person.brutoJaarSalaris = 10000;
-        //    person.rentevastePeriode = 30;
-        //    person.rentePercentage = 5;
-        //    person.heeftPartner = true;
-        //    person.partnerBrutoJaarSalaris = 5000;
-        //    person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
-        //    person.heeftStudieSchuld = true;
-        //    person.postcode = 9679;
+            person.brutoJaarSalaris = 10000;
+            person.rentevastePeriode = 30;
+            person.rentePercentage = 5;
+            person.heeftPartner = true;
+            person.partnerBrutoJaarSalaris = 5000;
+            person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
+            person.heeftStudieSchuld = true;
+            person.postcode = 9679;
 
-        //    hypo.Postcode();
-        //    hypo.BerekenHypotheek();
+            var postcode = person.postcode;
+            hypo.Postcode(postcode);
+            var result = hypo.BerekenHypotheek();
 
-        //    var expected = new HypotheekResult
-        //    {
-        //        MaxHypotheek = 0,
-        //    };
+            var expected = new HypotheekResult
+            {
+                MaxHypotheek = 0,
+            };
 
-        //    Assert.False(person.magLenen);
-        //    Assert.Equivalent(0, expected);
-        //}
+            Assert.False(person.magLenen);
+            Assert.Equivalent(expected, result);
+        }
     }
 }

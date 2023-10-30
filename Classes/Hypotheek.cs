@@ -167,6 +167,15 @@ namespace Hypo.Classes
             else
             {
                 person.postcode = userPostcode;
+
+                if (person.postcode == 9679 || person.postcode == 9681 || person.postcode == 9682)
+                {
+                    person.magLenen = false;
+                }
+                else
+                {
+                    person.magLenen = true;
+                }
             }
         }
 
