@@ -54,7 +54,9 @@ namespace UnitTest
             person.totaalJaarSalaris = person.brutoJaarSalaris + person.partnerBrutoJaarSalaris;
             person.heeftStudieSchuld = true;
             person.postcode = 6836;
-            person.magLenen = true;
+
+            var postcode = person.postcode;
+            hypo.Postcode(postcode);
 
             var result = hypo.BerekenHypotheek();
 
@@ -67,6 +69,7 @@ namespace UnitTest
                 TotaalBedragNaDertigJaar = 119530.80,
             };
 
+            Assert.True(person.magLenen);
             Assert.Equivalent(expected, result);
         }
 
